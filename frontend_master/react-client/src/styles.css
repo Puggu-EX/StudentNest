@@ -1,0 +1,29 @@
+/* ===== Baseline & Theme ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Quicksand", sans-serif;
+}
+
+:root {
+  --sn-blue: #003366;   /* navy */
+  --sn-gold: #ffc72c;   /* gold */
+  --sn-bg: #f5f5f5;
+  --sn-border: #d0d4da;
+  --sn-text: #111827;
+  --sn-muted: #6b7280;
+
+  --csulb-gold: #ffb81c;
+  --csulb-gold-600: #e0a418;
+  --home-bg: #f8f8f9;        /* warm beige */
+  --home-card: #fff;
+  --home-text: #2b2b2b;
+  --home-muted: #6b6b6b;
+  --home-border: #e7e2d6;
+  --home-shadow: 0 8px 24px rgba(0,0,0,0.08);
+
+  --primary-color: #f8f8f9;
+  --secondary-color: #f5f0e9;
+  --accent-color: #ffb81c;
+}

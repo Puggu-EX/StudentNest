@@ -1,0 +1,53 @@
+package edu.csulb.cecs491b.studentnest.controller;
+
+import edu.csulb.cecs491b.studentnest.controller.dto.enrollment.EnrollmentResponse;
+import edu.csulb.cecs491b.studentnest.controller.dto.student.DropSectionRequest;
+import edu.csulb.cecs491b.studentnest.controller.dto.student.EnrollSectionRequest;
+import edu.csulb.cecs491b.studentnest.controller.dto.student.CourseHistoryRequest;
+import edu.csulb.cecs491b.studentnest.controller.dto.student.StudentResponse;
+import edu.csulb.cecs491b.studentnest.controller.dto.student.UpdateStudentRequest;
+import edu.csulb.cecs491b.studentnest.service.StudentService;
+import lombok.AllArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/students")
+
+@AllArgsConstructor
+public class StudentController {
+
+    private final StudentService studentService;
+
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getStudent(@PathVariable int id) {
+        return studentService.get(id);
+    }
+
+    @GetMapping
+    public List<StudentResponse> list() {
+        return studentService.list();
+    }
+
+    @PostMapping("/history")
+    public List<EnrollmentResponse> getCourseHistory(@RequestBody CourseHistoryRequest request){
+        return studentService.getCourseHistory(request);
+    }
+
+    @PatchMapping("/update")
+    public ResponseEntity<?> updateStudent(@RequestBody UpdateStudentRequest request) {
+        return studentService.update(request);
+    }
+
+    @PostMapping("/enroll")
+    public ResponseEntity<?> enroll(@RequestBody EnrollSectionRequest req){
+        return studentService.enroll(req.student_id(), req.section_id(), req.enrollment_date());
+    }
+
+    @PostMapping("/drop")
+    public ResponseEntity<?> drop(@RequestBody DropSectionRequest req){
+        return studentService.drop(req.student_id(), req.section_id());
+    }
+}
