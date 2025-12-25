@@ -4,3 +4,6 @@
 /backend/.settings
 
 .idea
+backend/restart.sh
+backend/stop.sh
+backend/run.sh
