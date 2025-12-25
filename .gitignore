@@ -1,9 +1,9 @@
 /backend/target/
-/backend/src/main/resources/application.yml
 /backend/.factorypath
 /backend/.settings
 
 .idea
+.env
 backend/restart.sh
 backend/stop.sh
 backend/run.sh
